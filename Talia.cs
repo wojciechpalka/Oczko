@@ -21,3 +21,21 @@ namespace Oczko
 
             return zimnaTalia;
         }
+        public List<Karta> RozdajPoczatek()
+        {
+            List<Karta> karty_na_rence = new List<Karta>();
+            karty_na_rence.Add(karty[0]);
+            karty_na_rence.Add(karty[1]);
+
+            karty.RemoveRange(0, 2);
+            return karty_na_rence;
+        }
+
+
+        public Karta Rozdaj()
+        {
+            Karta karta = karty[0];
+            karty.Remove(karta);
+
+            return karta;
+        }
