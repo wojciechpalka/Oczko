@@ -21,17 +21,17 @@ namespace Oczko
 
             return zimnaTalia;
         }
+        //Usuwa 2 karty z tali kart i zwraca je w formie listy
         public List<Karta> RozdajPoczatek()
         {
             List<Karta> karty_na_rence = new List<Karta>();
             karty_na_rence.Add(karty[0]);
             karty_na_rence.Add(karty[1]);
-
+            //usuwa karty z tali
             karty.RemoveRange(0, 2);
             return karty_na_rence;
         }
-
-
+         //Usuwa karte z tali kart i ja zwraca
         public Karta Rozdaj()
         {
             Karta karta = karty[0];
@@ -39,6 +39,7 @@ namespace Oczko
 
             return karta;
         }
+        //Tasuje karty
         public void Tasuj()
         {
             Random rng = new Random();
@@ -53,6 +54,7 @@ namespace Oczko
                 karty[n] = karta;
             }
         }
+        //Zamienia karty na nową talie i ją tasuje
         public void Rozpocznij()
         {
             karty = GetZimnaTalia();
