@@ -39,3 +39,24 @@ namespace Oczko
 
             return karta;
         }
+        public void Tasuj()
+        {
+            Random rng = new Random();
+
+            int n = karty.Count;
+            while (n > 1)
+            {
+                n--;
+                int i = rng.Next(n + 1);
+                Karta karta = karty[i];
+                karty[i] = karty[n];
+                karty[n] = karta;
+            }
+        }
+        public void Rozpocznij()
+        {
+            karty = GetZimnaTalia();
+            Tasuj();
+        }
+    }
+}
