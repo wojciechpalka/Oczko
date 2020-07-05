@@ -4,7 +4,7 @@ using static Oczko.Awers;
 
 namespace Oczko
 {
-    /// Możliwe Kolory
+    /// Możliwe kolory
     public enum Kolor
     {
         Kier,
@@ -12,7 +12,7 @@ namespace Oczko
         Karo,
         Trefl
     }
-    /// Możliwe wartości
+    /// Możliwe awersy
     public enum Awers
     {
         As,
@@ -36,7 +36,7 @@ namespace Oczko
         public Kolor Kolor { get; }
         public int Wartosc { get; set; }
 
-        /// Incjacja Koloru i Wartości
+        /// Inicjacja koloru i wartości
 
         public Karta(Kolor kolor, Awers awers)
         {
