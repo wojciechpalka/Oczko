@@ -42,6 +42,11 @@ namespace Oczko
         public int Zaklad { get; set; }
         public int Wygrane { get; set; }
         public int Rozegrane { get; set; } = 1;
+        public int Przegrane22 { get; set; }
+        public int PrzegraneK { get; set; }
+        public int CałkowityZakład { get; set; }
+        public int Oczko { get; set; }
+        public int PerskieOczko { get; set; }
 
         public List<Karta> Reka { get; set; }
 
