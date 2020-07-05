@@ -6,7 +6,7 @@ namespace Oczko
     public class Talia
     {
         private List<Karta> karty;
-        //Zwraca potasowaną Talie
+        //Zwraca potasowaną talie
         public List<Karta> GetZimnaTalia()
         {
             List<Karta> zimnaTalia = new List<Karta>();
@@ -21,7 +21,7 @@ namespace Oczko
 
             return zimnaTalia;
         }
-        //Usuwa 2 karty z tali kart i zwraca je w formie listy
+        //Usuwa 2 karty z talii kart i zwraca je w formie listy
         public List<Karta> RozdajPoczatek()
         {
             List<Karta> karty_na_rence = new List<Karta>();
@@ -31,7 +31,7 @@ namespace Oczko
             karty.RemoveRange(0, 2);
             return karty_na_rence;
         }
-         //Usuwa karte z tali kart i ja zwraca
+        //Usuwa kartę z talii kart i ją zwraca
         public Karta Rozdaj()
         {
             Karta karta = karty[0];
