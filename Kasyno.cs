@@ -8,7 +8,7 @@ namespace Oczko
         public static int MinimalnyZaklad { get; } = 5;
 
         
-        //Zwraca wartość true jeśli gracz ma oczko
+        //Zwraca wartość true, jeśli gracz ma oczko
         public static bool CzyOczko(List<Karta> karty_na_rence)
         {
             if (karty_na_rence.Count == 2)
@@ -18,7 +18,7 @@ namespace Oczko
             }
             return false;
         }
-        //Zwraca wartość true jeśli gracz ma perskie oczko
+        //Zwraca wartość true, jeśli gracz ma perskie oczko
         public static bool CzyPerskieOczko(List<Karta> karty_na_rence)
         {
             if (karty_na_rence.Count == 2)
@@ -28,7 +28,7 @@ namespace Oczko
             return false;
         }
 
-        //Zamień kolory na podstawowe 
+        //Zamień kolory na standardowe 
         public static void ZresetujKolor()
         {
             Console.ForegroundColor = ConsoleColor.DarkGray;
@@ -50,27 +50,27 @@ namespace Oczko
 
         public List<Karta> Reka { get; set; }
 
-        //Odejmuje wartość zakładu od zetonów gracza a dodaje do puli zakładu
+        //Odejmuje wartość zakładu od żetonów gracza i dodaje do puli zakładu
         public void DodajZaklad(int zaklad)
         {
             Zaklad += zaklad;
             Zetony -= zaklad;
         }
 
-        //Po grze przywróć wartość zakładu do zera
+        //Po rundzie - przywróć wartość zakładu do zera
         public void WyczyscZaklad()
         {
             Zaklad = 0;
         }
 
-        //W przypadku remisu użyj tej funkcji w celu zwróceniu zakładu
+        //W przypadku remisu - użyj tej funkcji, w celu zwrócenia zakładu do puli żetonów gracza
         public void ZwrocZaklad()
         {
             Zetony += Zaklad;
             WyczyscZaklad();
         }
 
-        //W zależności od typu wygranej przydiel odpowiednią nagrodę a następnie wyczyść zakład
+        //W zależności od typu wygranej, przydziel odpowiednią nagrodę a następnie wyczyść zakład
         public int WygranyZaklad(bool oczko)
         {
             int WygraneZetony;
@@ -102,7 +102,7 @@ namespace Oczko
         //Wypisz interfejs gracza
         public void Wypisz()
         {
-            // Wypisz wartości "stałe": ilość żetonów, wysokość zakładu itp  
+            // Wypisz wartości "stałe": ilość żetonów, wysokość zakładu itp.  
             Console.Write("Zakład: ");
             Console.ForegroundColor = ConsoleColor.Red;
             Console.Write(Zaklad + "  ");
@@ -116,7 +116,7 @@ namespace Oczko
             Console.WriteLine(Wygrane);
             Kasyno.ZresetujKolor();
             Console.WriteLine("Runda " + Rozegrane);
-            //Wypisz Karty na rence gracza
+            //Wypisz Karty na ręce gracza
             Console.WriteLine();
             Console.WriteLine("Twoja punktacja (" + PunktacjaReki() + "):");
 
@@ -134,7 +134,7 @@ namespace Oczko
         public static List<Karta> UkryteKarty { get; set; } = new List<Karta>();
         public static List<Karta> OdkryteKarty { get; set; } = new List<Karta>();
 
-        //Wymienie pierwszą karte z listy kart ukrytych i dodaję ją do listy kart odkrytych
+        //Wymienia pierwszą karte z listy kart ukrytych i dodaje ją do listy kart odkrytych
         public static void OdkryjKarte()
         {
             OdkryteKarty.Add(UkryteKarty[0]);
@@ -152,7 +152,7 @@ namespace Oczko
             return punkty;
         }
 
-        //Wypisz karty krupiera dla kart ukrytych zamiast opisu wypisz "???"
+        //Wypisz karty krupiera dla kart ukrytych, zamiast opisu wypisz "???"
         public static void Wypisz()
         {
             Console.WriteLine("Punktacja Krupiera (" + Punkty() + "):");
