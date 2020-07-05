@@ -29,7 +29,7 @@ namespace Oczko
         }
 
         //Zamień kolory na podstawowe 
-        public static void ResetColor()
+        public static void ZresetujKolor()
         {
             Console.ForegroundColor = ConsoleColor.DarkGray;
             Console.BackgroundColor = ConsoleColor.Black;
@@ -106,15 +106,15 @@ namespace Oczko
             Console.Write("Zakład: ");
             Console.ForegroundColor = ConsoleColor.Red;
             Console.Write(Zaklad + "  ");
-            Kasyno.ResetColor();
+            Kasyno.ZresetujKolor();
             Console.Write("Żetony: ");
             Console.ForegroundColor = ConsoleColor.White;
             Console.Write(Zetony + "  ");
-            Kasyno.ResetColor();
+            Kasyno.ZresetujKolor();
             Console.Write("Wygrane: ");
             Console.ForegroundColor = ConsoleColor.Green;
             Console.WriteLine(Wygrane);
-            Kasyno.ResetColor();
+            Kasyno.ZresetujKolor();
             Console.WriteLine("Runda " + Rozegrane);
             //Wypisz Karty na rence gracza
             Console.WriteLine();
