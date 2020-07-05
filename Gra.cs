@@ -5,11 +5,11 @@ using System.Threading;
 namespace Oczko
 {
     public class Program
-    {   //Inicjuje Talie i gracza
+    {   //Inicjuje talie i gracza
         private static Talia talia = new Talia();
         private static Gracz gracz = new Gracz();
 
-        //Możliwe rezultaty rundy 
+        //Możliwe zakończenia rundy 
         private enum Rezultat
         {
             Remis,
@@ -21,7 +21,7 @@ namespace Oczko
             NiewlasciwyZaklad
         }
 
-        //Rozpoczyna grę poprzez Stworzenie Tali rozdaje karty graczowi i krupierowi oraz pokazuje je
+        //Rozpoczyna grę poprzez stworzenie talii, rozdaje karty graczowi i krupierowi oraz je wypisuje
         static void RozdajKarty()
         {
             talia.Rozpocznij();
@@ -34,7 +34,7 @@ namespace Oczko
             Krupier.Wypisz();
         }
 
-        //Zawiera kod kontrulujący przebieg rundy 
+        //Zawiera kod kontrulujący przebieg rundy  
         static void RozpocznijRunde()
         {
             Console.Clear();
@@ -118,7 +118,7 @@ namespace Oczko
 
         }
 
-        //Pętla pytająca gracza o ruch aż gracz zdecyduje o koncu swojej rundy lub przekroczy limit punktów
+        //Pętla pytająca gracza o ruch, aż gracz zdecyduje o końcu swojej rundy lub przekroczy limit punktów
         static void Akcja()
         {
             string akcja;
@@ -188,7 +188,7 @@ namespace Oczko
             return false;
         }
 
-        //switch między możliwymi zakończeniami rundy oraz funkcja która może zakońcyć grę zresetować ją lub rozpocząc kolejną rundę
+        //switch między możliwymi zakończeniami rundy oraz funkcja, która może zakońcyć grę, zresetować ją lub rozpocząć kolejną rundę
         static void Koniec(Rezultat rezultat)
         {
             switch (rezultat)
@@ -225,7 +225,7 @@ namespace Oczko
                     Console.WriteLine("Nieodpowiedni zakład");
                     break;
             }
-            //Częśc kodu odpowiadajacy za zresetowanie statystyk w przypadku przegranej gracza
+            //Część kodu odpowiadajacy za zresetowanie statystyk w przypadku przegranej gracza
             if (gracz.Zetony <= 0)
             {
                 Console.ForegroundColor = ConsoleColor.Red;
@@ -280,16 +280,16 @@ namespace Oczko
                 else
                 {
                     Console.WriteLine("Przegrywałeś porówno przez przewagę punktową krupiera jak i zbyt wysoką liczbę punktów.");
-                    Console.WriteLine("Możliwe że po prostu miałeś pecha.");
+                    Console.WriteLine("Możliwe, że po prostu miałeś pecha.");
 
                 }
-                Console.WriteLine("Twój stanardowy zakład wynosił " + (gracz.CałkowityZakład)/(gracz.Rozegrane - 1) + " żetonów");
+                Console.WriteLine("Twój standardowy zakład wynosił " + (gracz.CałkowityZakład)/(gracz.Rozegrane - 1) + " żetonów");
 
-                Console.WriteLine("100 żetonów zostało dodanych na Twoje konto a statystyki zostały wyzerowane");
+                Console.WriteLine("100 żetonów zostało dodanych na Twoje konto, statystyki zostały wyzerowane");
 
                 gracz = new Gracz();
             }
-            //Częśc kodu odpowiadajaca za zakończenie gry w przypadku wygranej gracza
+            //Część kodu odpowiadajacy za zakończenie gry w przypadku wygranej gracza
             if (gracz.Zetony >= 200)
             {
                 Console.ForegroundColor = ConsoleColor.Red;
@@ -338,15 +338,15 @@ namespace Oczko
                 else if (gracz.Przegrane22 != 0 && gracz.PrzegraneK != 0)
                 {
                     Console.WriteLine("Przegrywałeś porówno przez przewagę punktową krupiera jak i zbyt wysoką liczbę punktów.");
-                    Console.WriteLine("Możliwe że po prostu miałeś pecha.");
+                    Console.WriteLine("Możliwe, że po prostu miałeś pecha.");
 
                 }
-                Console.WriteLine("Twój stanardowy zakład wynosił " + (gracz.CałkowityZakład) / (gracz.Rozegrane - 1) + " żetonów");
-                Console.WriteLine("Nacisnij jakikolwiek przycisk aby zamknąć aplikacje");
+                Console.WriteLine("Twój standardowy zakład wynosił " + (gracz.CałkowityZakład) / (gracz.Rozegrane - 1) + " żetonów");
+                Console.WriteLine("Naciśnij jakikolwiek przycisk aby zamknąć aplikacje");
                 Console.ReadKey();
                 Environment.Exit(1);
             }
-            //Część kodu odpowiadająca za rozpoczęcie kolejnej rundy jeśli oba poprzednie warunki nie są spełnione
+            //Część kodu odpowiadający za rozpoczęcie kolejnej rundy, jeśli oba poprzednie warunki nie są spełnione
             Kasyno.ZresetujKolor();
             Console.WriteLine("Nacisnij jakikolwiek przycisk aby kontynuować");
             Console.ReadKey();
@@ -356,23 +356,23 @@ namespace Oczko
         static void Main(string[] args)
         {
             Kasyno.ZresetujKolor();
-            Console.WriteLine("Witaj w grze Oczko. Twoim celem jest podwoić swoją stawkę żetonów. W tym celu muisz znaleźć się jak najbliżej 21 punktów ale pamiętaj osiągnięcię 22 lub więcej punktów bedzię skótkowało natychmiastową przegraną rundy.");
+            Console.WriteLine("Witaj w grze Oczko. Twoim celem jest podwoić swoją sumę żetonów. W tym celu musisz znaleźć się jak najbliżej 21 punktów, ale pamiętaj -  osiągnięcie 22 lub więcej punktów będzie skótkowało natychmiastową przegraną rundy.");
             Console.WriteLine("");
-            Console.WriteLine("W grze mamy 1 specjalną kombinacje jest to perskie oczko są nim 2 asy na ręcę tuż po rozdaniu. W tym wypadku Twoja suma punktów wyniesie 22 ale mimo to wygrasz rundę jedyne co musisz zrobić to nie dobierać więcej kart");
+            Console.WriteLine("W grze mamy 1 specjalną kombinacje, jest to perskie oczko - są nim 2 asy na ręcę tuż po rozdaniu. W tym przypadku Twoja suma punktów wyniesie 22, ale mimo to wygrasz rundę. Jedyne co musisz zrobić, to nie dobierać więcej kart");
             Console.WriteLine("");
-            Console.WriteLine("Punktacja kart: As= 11, Król = 4, Królowa = 3, Dupek = 2 reszta kart ma puktację zgodną z wartością na karcie np dziewięć = 9");
+            Console.WriteLine("Punktacja kart: As= 11, Król = 4, Królowa = 3, Dupek = 2. Reszta kart ma puktację zgodną z wartością na karcie np. dziewięć = 9");
             Console.WriteLine("");
             Console.WriteLine("W grze masz możliwość wykonania 3 ruchów:");
-            Console.WriteLine("1 - Dobierz - po prostu dobierasz kolejną kartę, 2 - Koniec zakańczasz dobieranie następnie dobiera krupier osoba bliżej granicy 21 punktów wygrywa, 3 Podwój - Podwajasz swój początkowy zakład i dobierasz jedną ostatnią kartę");
+            Console.WriteLine("1 - Dobierz - po prostu dobierasz kolejną kartę, 2 - Koniec, czyli zaprzestajesz dobieranie kart. Następnie karty dobiera krupier. Osoba bliżej granicy 21 punktów wygrywa, 3 Podwój - Podwajasz swój początkowy zakład i dobierasz jedną ostatnią kartę");
             Console.WriteLine("");
-            Console.WriteLine("Krupier nie bedzię dobierał jeśli ma więcej niż 16 punktów");
+            Console.WriteLine("Krupier nie będzie dobierał, jeśli ma więcej niż 16 punktów");
             Console.WriteLine("");
-            Console.WriteLine("Gra zakończy się jeśli na Twoim koncie będzie minimum 200 żetonów. W przypadku kiedy przegrasz wszystkie żetony gra zostanie automatycznie zresetowana.");
+            Console.WriteLine("Gra zakończy się. jeśli na Twoim koncie będzie minimum 200 żetonów. W przypadku kiedy przegrasz wszystkie żetony, gra zostanie automatycznie zresetowana.");
             Console.WriteLine("");
             Console.WriteLine("Powodzenia");
             Console.WriteLine("");
             Console.WriteLine("");
-            Console.WriteLine("Nacisnij jakikolwiek przycisk aby kontynuować");
+            Console.WriteLine("Naciśnij jakikolwiek przycisk aby kontynuować grę");
             Console.ReadKey();
             RozpocznijRunde();
         }
